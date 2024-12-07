@@ -1,0 +1,25 @@
+.nav-container {
+    position: relative;
+  }
+  
+  .nav-links a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 0 23px;
+    font-size: 1em;
+    font-weight: 500;
+  }
+  
+  .nav-links a:hover ~ .indicator {
+    transition: left 0.5s ease;
+  }
+  
+  .nav-links a:nth-child(1):hover ~ .indicator {
+    left: 62px;
+  }
+  
+  .nav-links a:nth-child(2):hover ~ .indicator {
+    left: 152px;
+  }

@@ -9,7 +9,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({label, className, onClick}) 
   return (
     <div 
         onClick={onClick}    
-        className={`w-full py-4 bg-red-400 hover:bg-red-600 text-white text-center rounded-xl transition cursor-pointer ${className}`}>
+        className={`font-plus_jakarta py-4 text-center rounded-xl transition cursor-pointer ${className}`}>
       {label}
     </div>
   )

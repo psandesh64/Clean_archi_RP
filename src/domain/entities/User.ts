@@ -14,20 +14,34 @@ export interface IUser {
 }
 
 export interface IUserLogin {
-email: string;
+userName: string;
 password: string;
+tenantId: number;
 }
 
-// src/domain/entities/AuthResponses.ts
 export interface LoginResponse {
     
-    data: {
-        access_token: string;
-        refresh_token: string;
+    succeeded: boolean;
+    token: string;
 
-    };
 }
 
 export interface ErrorResponse {
     non_field_errors?: string[];
 }
+
+// export interface IUserLogin {
+//     email: string;
+//     password: string;
+//     organization: number;
+//     }
+
+// src/domain/entities/AuthResponses.ts
+// export interface LoginResponse {
+    
+//     data: {
+//         access_token: string;
+//         refresh_token: string;
+
+//     };
+// }

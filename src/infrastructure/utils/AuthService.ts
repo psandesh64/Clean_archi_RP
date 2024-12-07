@@ -30,11 +30,13 @@ export async function handleRefresh() {
 }
 
 export function handleLogin(
-    // userId: string, 
-    accessToken: string, refreshToken: string) {
+    // userId: string,
+    // refreshToken: string, 
+    accessToken: string, 
+    ) {
     // Cookies.set('session_userid', userId, { expires: 7, secure: true, sameSite: 'strict' });
+    // Cookies.set('session_refresh_token', refreshToken, { expires: 7, secure: true, sameSite: 'strict' });
     Cookies.set('session_access_token', accessToken, { expires: 1 / 24, secure: true, sameSite: 'strict' });
-    Cookies.set('session_refresh_token', refreshToken, { expires: 7, secure: true, sameSite: 'strict' });
 }
 
 export function resetAuthCookies() {

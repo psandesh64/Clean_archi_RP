@@ -1,8 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { CURRENT_BASE_URL } from "../../constants/constants";
-
 import { getAccessToken, handleRefresh } from "../utils/AuthService";
-
 
 export abstract class HttpClient {
   protected instance: AxiosInstance | undefined;
@@ -22,7 +20,6 @@ export abstract class HttpClient {
     // Request Interceptor to set Authorization header
     this.instance?.interceptors.request.use(async (config) => {
       const token = await getAccessToken(); // Retrieve access token from cookies
-
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -54,15 +51,4 @@ export abstract class HttpClient {
     // Reject the error if refreshing fails or another error occurs
     return Promise.reject(error);
   };
-}  
-
-// this.instance?.interceptors.request.use(async (config) => {
-    //   // Skip authorization for specific endpoints
-    //   if (!config.url?.includes("auth/login")) {
-    //     const token = await getAccessToken();
-    //     if (token) {
-    //       config.headers.Authorization = `Bearer ${token}`;
-    //     }
-    //   }
-    //   return config;
-    // });
+}

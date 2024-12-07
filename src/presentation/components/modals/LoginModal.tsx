@@ -15,28 +15,21 @@ const LoginModal = () => {
     const [errors, setErrors] = useState<string[]>([])
 
     const formData = {
-        email: email,
-        password: password
+        userName: email,
+        password: password,
+        tenantId:1,
     }
 
     const authRepository = useContext(AuthRepositoryContext);
 
 
     const submitLogin = async () => {
-   
-        if (!authRepository) {
-            console.error("AuthRepository is not provided.");
-            return;
-        }
-    
+
         try {
             console.log(formData);
             const response = await authRepository.create(formData);
-            console.log(response.data)
-            if (response.data.access_token) {
-                handleLogin(
-                    // response.user.pk, 
-                    response.data.access_token, response.data.refresh_token);
+            if (response.token) {
+                handleLogin(response.token);
                 loginModal.close();
                 navigate('/');
             }
